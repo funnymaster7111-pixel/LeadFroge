@@ -1,0 +1,5 @@
+<svg viewBox="0 0 480 120" xmlns="http://www.w3.org/2000/svg">
+  <rect x="4" y="4" width="112" height="112" rx="26" fill="#ffffff"/>
+  <text x="60" y="83" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="60" fill="#1f6feb" text-anchor="middle" letter-spacing="-2">LF</text>
+  <text x="148" y="81" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="58" fill="#ffffff" letter-spacing="-1">LeadForge</text>
+</svg>

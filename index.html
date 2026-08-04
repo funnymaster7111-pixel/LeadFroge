@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeadForge — Marketing &amp; AI Systems for Local Trades</title>
+<style>
+  :root {
+    --ink: #16202a;
+    --ink-soft: #4b5563;
+    --line: #e5e9ee;
+    --bg: #ffffff;
+    --bg-alt: #f6f8fa;
+    --accent: #1f6feb;
+    --accent-dark: #16528f;
+    --accent-soft: #eaf2ff;
+    --radius: 10px;
+    font-size: 16px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.55;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+    z-index: 100;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff !important;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+  }
+
+  .nav-cta:hover { background: var(--accent-dark); }
+
+  .menu-toggle { display: none; }
+
+  /* Hero */
+  .hero {
+    padding: 88px 0 72px;
+    background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-size: 2.6rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+  }
+
+  .hero p.lead {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    margin: 0 0 28px;
+    max-width: 46ch;
+  }
+
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-block;
+    padding: 13px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.98rem;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-dark); }
+
+  .btn-secondary { background: #fff; color: var(--ink); border-color: var(--line); }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: 0 12px 32px rgba(16, 24, 40, 0.06);
+  }
+
+  .hero-card h3 {
+    margin: 0 0 6px;
+    font-size: 1.05rem;
+  }
+
+  .hero-card p {
+    margin: 0 0 18px;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+  }
+
+  .hero-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero-list li {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+    font-size: 0.92rem;
+    color: var(--ink);
+  }
+
+  .hero-list li:first-child { border-top: none; }
+
+  .check {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  /* Sections */
+  section { padding: 72px 0; }
+
+  .section-head {
+    max-width: 620px;
+    margin: 0 0 44px;
+  }
+
+  .section-tag {
+    color: var(--accent-dark);
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  h2 {
+    font-size: 1.9rem;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+  }
+
+  .section-head p {
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    margin: 0;
+  }
+
+  /* Industries */
+  .industries {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .chip {
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.92rem;
+  }
+
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .service-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 26px;
+    background: #fff;
+  }
+
+  .service-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+
+  .service-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+  }
+
+  .service-card p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.94rem;
+  }
+
+  /* How it works */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    counter-reset: step;
+  }
+
+  .step {
+    position: relative;
+    padding-top: 8px;
+  }
+
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+  }
+
+  .step h3 { margin: 0 0 8px; font-size: 1.05rem; }
+  .step p { margin: 0; color: var(--ink-soft); font-size: 0.92rem; }
+
+  /* Pricing */
+  .pricing {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .pricing-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 36px;
+    max-width: 640px;
+    box-shadow: 0 12px 32px rgba(16, 24, 40, 0.05);
+  }
+
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 6px 0 4px;
+  }
+
+  .price-row .amount {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .price-row .period {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  .price-note {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    margin: 0 0 22px;
+  }
+
+  .pricing-list {
+    list-style: none;
+    margin: 0 0 26px;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+
+  .pricing-list li {
+    display: flex;
+    gap: 10px;
+    font-size: 0.95rem;
+  }
+
+  .phone-link {
+    display: inline-block;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .phone-link:hover { color: var(--accent-dark); }
+
+  .badge-no-contract {
+    display: inline-block;
+    background: #ecfdf3;
+    color: #067647;
+    border: 1px solid #abefc6;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+
+  /* Contact */
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .contact-info h2 { margin-bottom: 14px; }
+  .contact-info p { color: var(--ink-soft); margin: 0 0 20px; }
+
+  .contact-detail {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+  }
+
+  .contact-detail .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  form {
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px;
+    display: grid;
+    gap: 16px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+
+  input, textarea, select {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    background: #fff;
+    color: var(--ink);
+  }
+
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  textarea { resize: vertical; min-height: 110px; }
+
+  .form-submit {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 13px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.98rem;
+    cursor: pointer;
+    justify-self: start;
+  }
+
+  .form-submit:hover { background: var(--accent-dark); }
+
+  .form-hint {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-inner p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    h1 { font-size: 2.1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#top" class="logo">Lead<span>Forge</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:8476829647" class="nav-cta">Call Now</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow">Marketing &amp; AI for Local Trades</span>
+        <h1>More calls booked. Fewer leads lost.</h1>
+        <p class="lead">LeadForge runs the ads and the AI receptionist so roofing, HVAC, plumbing, electrical, and restoration companies stop missing jobs while they're out on site.</p>
+        <div class="btn-row">
+          <a href="tel:8476829647" class="btn btn-primary">Call 847-682-9647</a>
+          <a href="#services" class="btn btn-secondary">See What We Do</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>What you get</h3>
+        <p>A simple, no-contract setup built for busy trade businesses.</p>
+        <ul class="hero-list">
+          <li><span class="check">✓</span> Targeted Facebook &amp; Google ad campaigns</li>
+          <li><span class="check">✓</span> AI receptionist that books jobs straight to your calendar</li>
+          <li><span class="check">✓</span> Branded website if you don't have one yet</li>
+          <li><span class="check">✓</span> Cancel anytime — no long-term contract</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="industries">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:24px;">
+        <span class="section-tag">Who We Work With</span>
+        <h2>Built for local service trades</h2>
+      </div>
+      <div class="chip-row">
+        <span class="chip">Roofing</span>
+        <span class="chip">HVAC</span>
+        <span class="chip">Plumbing</span>
+        <span class="chip">Electrical</span>
+        <span class="chip">Restoration</span>
+        <span class="chip">Detailing</span>
+        <span class="chip">Home Services</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">Core Services</span>
+        <h2>Everything that turns attention into booked jobs</h2>
+        <p>Pick one service or bundle them together — most clients start with ads and the AI receptionist.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">FB</div>
+          <h3>Facebook Ads</h3>
+          <p>Targeted lead-gen campaigns built for local service trades — get in front of homeowners in your service area who need work done now.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">G</div>
+          <h3>Google Ads</h3>
+          <p>For businesses that already have some traction and want to scale reach with high-intent search traffic.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">AI</div>
+          <h3>AI Receptionist</h3>
+          <p>Answers calls and books jobs when you're out on site and can't pick up — so leads don't get lost. Appointments go straight into your Google Calendar.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">W</div>
+          <h3>Website Builds</h3>
+          <p>A branded, professional site that makes your business look established the moment someone checks you out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" style="background: var(--bg-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">How It Works</span>
+        <h2>Simple to start, easy to stay</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Quick call</h3>
+          <p>We talk about where your leads are coming from now and where they're falling through the cracks.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>We set it up</h3>
+          <p>Campaigns, receptionist, or website — built around your business and your service area.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>You get the calls</h3>
+          <p>Leads and booked jobs start coming in. Stay as long as it's working — leave anytime it's not.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head" style="margin: 0 auto 28px; text-align: center; max-width: 560px;">
+        <span class="section-tag">Contact</span>
+        <h2>Let's talk about your leads</h2>
+        <p>Give us a call and we'll walk through what's going on with your leads and what we can do about it.</p>
+      </div>
+      <div class="pricing-card" style="margin: 0 auto; text-align: center;">
+        <a href="tel:8476829647" class="phone-link">847-682-9647</a>
+        <p class="price-note" style="margin-top: 14px;">Call anytime to get started — no forms, no email back-and-forth.</p>
+        <a href="tel:8476829647" class="btn btn-primary" style="margin-top: 10px;">Call Now</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <a href="#top" class="logo" style="font-size:1.05rem;">Lead<span>Forge</span></a>
+    <p>&copy; 2026 LeadForge. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
