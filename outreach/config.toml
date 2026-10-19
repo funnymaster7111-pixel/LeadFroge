@@ -1,0 +1,33 @@
+# LeadForge automated cold email settings.
+# Edit this file on GitHub to change how the sender behaves.
+
+# "preview" = write the emails it WOULD send to outreach/previews/ (nothing is sent).
+# "live"    = actually send. Only switch once you've checked a few previews.
+mode = "preview"
+
+[sender]
+name = "LeadForge"
+email = "leadforge7@gmail.com"        # Gmail account the emails are sent from
+phone = "847-682-9647"
+notify_email = "leadforge7@gmail.com" # where the daily summary goes
+# US law (CAN-SPAM) requires a real postal address in every commercial email.
+# Live mode refuses to run until this is filled in. A PO box is fine.
+physical_address = ""
+
+[schedule]
+timezone = "America/Chicago"
+send_days = ["Mon", "Tue", "Wed", "Thu", "Fri"]
+# Days to wait after the previous email before each follow-up.
+# [3, 4] = email 2 goes 3 days after email 1, email 3 goes 4 days after email 2.
+followup_days = [3, 4]
+# Seconds to wait between sends, picked at random so it doesn't look robotic.
+delay_seconds_min = 45
+delay_seconds_max = 120
+
+[limits]
+# New inboxes get flagged as spam if they send a lot right away, so the daily
+# cap ramps up: warmup_start on day 1, +warmup_increment each day, up to daily_max.
+warmup_start_date = "2026-10-20"
+warmup_start = 10
+warmup_increment = 2
+daily_max = 40

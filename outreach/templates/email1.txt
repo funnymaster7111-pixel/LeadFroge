@@ -1,0 +1,22 @@
+Subject: Quick question for {business}
+
+Hey{first_name_comma}
+
+{opener}
+
+I help {trade} companies around {city} with the two things that usually cost them jobs without them realizing it:
+
+1. Not enough new leads. Targeted Facebook and Google ads put you in front of homeowners actively looking for the work you do, so you're not just waiting on referrals.
+
+2. Missed calls. An AI receptionist answers every call 24/7 and books the job straight into your Google Calendar. Most missed calls just go to the next name on Google.
+
+$300/month flat plus your ad budget, no contract, cancel anytime.
+
+Worth a quick 15-minute call? Just reply here or call me at {phone}.
+
+Talk soon,
+{sender_name}
+{phone}
+{physical_address}
+
+Not interested? Reply "stop" and I won't email you again.

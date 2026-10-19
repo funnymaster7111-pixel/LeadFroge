@@ -1,0 +1,11 @@
+Hey{first_name_comma}
+
+Just bumping this up in case it got buried. Most {trade} owners I talk to are missing more calls than they think while they're out on a job, and every one of those is a job going to a competitor.
+
+Happy to show you how the AI receptionist would handle calls for {business}. Takes 15 minutes. Want me to send over a couple of times?
+
+{sender_name}
+{phone}
+{physical_address}
+
+Reply "stop" and I won't email again.
