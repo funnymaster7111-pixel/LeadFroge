@@ -1,0 +1,21 @@
+{
+  "_readme": "Example config. Replace every value with the clinic's real details. Paths are relative to this file. Leave logoPath empty and photoPaths [] if you don't have them — the generator falls back to clean branded graphics. Only use REAL photos of the clinic or its actual providers (no stock models, no AI-generated people, no before/after or body shots).",
+  "clinicName": "Aster Med Spa",
+  "city": "Austin",
+  "neighborhoods": ["South Congress", "Zilker", "Mueller", "Westlake"],
+  "phone": "(512) 555-0142",
+  "semaglutidePrice": "$99/week",
+  "tirzepatidePrice": "$149/week",
+  "newClientOffer": "First week free",
+  "brandColors": {
+    "primary": "#123F45",
+    "accent": "#D9734E",
+    "background": "#F7F3EE"
+  },
+  "logoPath": "assets/example-logo.svg",
+  "photoPaths": [],
+  "fonts": {
+    "heading": "Fraunces",
+    "body": "Inter"
+  }
+}

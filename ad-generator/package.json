@@ -1,0 +1,14 @@
+{
+  "name": "medspa-glp1-ad-generator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Renders compliant GLP-1 / medical weight loss Facebook & Instagram ads for a med spa from a clinic.json config.",
+  "type": "module",
+  "scripts": {
+    "ads": "node src/generate.js"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "playwright": "1.56.1"
+  }
+}
