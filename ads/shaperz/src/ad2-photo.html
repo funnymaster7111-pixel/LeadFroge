@@ -1,0 +1,43 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Shaperz Ad 2 – $249 Offer (photo)</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+/* Feed: offer panel on the left, clinic/ShapeScale photo on the right (560/1080 = 52%); logo in the photo's bottom-right corner */
+.ad.photo{grid-template-columns:1fr 560px}
+.panel{order:-1;padding:100px 34px 80px 70px;background:linear-gradient(180deg,var(--blush),#FFFFFF)}
+.photo-cell .fade{background:linear-gradient(270deg,transparent 72%,rgba(248,216,212,.85) 100%)}
+.badge{margin-top:auto;background:var(--pink);color:#fff;font-weight:700;font-size:18px;letter-spacing:3px;padding:10px 22px;border-radius:999px}
+.price{font-family:var(--sans);font-weight:800;font-size:170px;line-height:1;letter-spacing:-4px;color:var(--navy);margin-top:18px}
+.price sup{font-size:.42em;vertical-align:.95em;color:var(--gold);letter-spacing:0;margin-right:4px}
+h1{font-size:52px;letter-spacing:4px;margin-top:2px}
+.rule{margin-top:24px;width:260px}
+.sub{font-size:22px;line-height:1.45;margin-top:20px}
+.tagline{font-size:44px;margin-top:auto}
+@media (max-aspect-ratio:3/4){
+  .ad.photo{grid-template-columns:1fr;grid-template-rows:960px 1fr;padding:0}
+  .panel{order:0;padding:30px 90px 350px}
+  .photo-cell .fade{background:linear-gradient(180deg,transparent 70%,rgba(248,216,212,.9) 100%)}
+  .badge{margin-top:0;font-size:24px;padding:12px 28px}
+  .price{font-size:190px;margin-top:10px}
+  h1{font-size:66px;margin-top:0}
+  .rule{margin-top:20px;width:360px}
+  .sub{font-size:30px;margin-top:18px}
+  .tagline{font-size:58px;margin-top:auto}
+  .logo.corner{position:absolute;right:70px;top:730px;bottom:auto}
+}
+</style></head><body>
+<div class="ad photo">
+  <div class="photo-cell" data-label="PHOTO: clinic or ShapeScale (photos/clinic.jpg)">
+    <img src="../photos/clinic.jpg" alt="Inside the Shaperz Elite clinic on 111th Street"><div class="fade"></div>
+  </div>
+  <div class="panel">
+    <div class="badge">NEW PATIENT SPECIAL</div>
+    <div class="price"><sup>$</sup>249</div>
+    <h1>First Month</h1>
+    <div class="rule"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></div>
+    <p class="sub">Medical weight loss program. Labs, 3D body scan, and meal plan included.</p>
+    <div class="tagline">Get ready, get set, get healthy</div>
+  </div>
+  <div class="logo corner"><img src="assets/shaperz-logo.png" alt="Shaperz Elite Wellness and Aesthetics"></div>
+</div>
+<script src="logo.js"></script><script src="photo.js"></script>
+</body></html>

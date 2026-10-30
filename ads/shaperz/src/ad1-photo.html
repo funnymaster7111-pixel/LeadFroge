@@ -1,0 +1,43 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Shaperz Ad 1 – Local Care (photo)</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+/* Feed: Lynn's photo on the left (560/1080 = 52%), blush panel on the right; logo in the photo's bottom-left corner */
+.ad.photo{grid-template-columns:560px 1fr}
+.photo-cell img{object-position:50% 22%}
+.photo-cell .fade{background:linear-gradient(90deg,transparent 72%,rgba(248,216,212,.85) 100%)}
+.panel{padding:110px 70px 80px 34px;background:linear-gradient(180deg,var(--blush),#FFFFFF)}
+h1{font-size:54px;margin-top:auto;line-height:1.14}
+.sub{font-size:24px;line-height:1.45;margin-top:24px}
+.rule{margin-top:28px;width:260px}
+.offer{margin-top:24px;font-size:18px;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+.offer b{color:var(--pink);font-weight:800}
+.tagline{font-size:44px;margin-top:auto}
+.logo.corner{right:auto;left:62px}
+/* Stories: photo is the top half (960px), panel below; logo sits on the seam; text ends above y=1570 */
+@media (max-aspect-ratio:3/4){
+  .ad.photo{grid-template-columns:1fr;grid-template-rows:960px 1fr;padding:0}
+  .photo-cell .fade{background:linear-gradient(180deg,transparent 70%,rgba(248,216,212,.9) 100%)}
+  .panel{padding:40px 90px 350px;background:linear-gradient(180deg,var(--blush),#FFFFFF)}
+  h1{font-size:66px;margin-top:0}
+  .sub{font-size:32px;margin-top:22px}
+  .rule{margin-top:26px;width:360px}
+  .offer{font-size:28px;margin-top:22px}
+  .tagline{font-size:58px;margin-top:auto}
+  .logo.corner{position:absolute;left:auto;right:70px;top:730px;bottom:auto}
+}
+</style></head><body>
+<div class="ad photo">
+  <div class="photo-cell" data-label="PHOTO: Lynn St. Victor-Luckett headshot (photos/lynn-headshot.jpg)">
+    <img src="../photos/lynn-headshot.jpg" alt="Lynn St. Victor-Luckett, FNP-BC"><div class="fade"></div>
+  </div>
+  <div class="panel">
+    <h1>Real Weight Loss Care, Right Here on 111th Street</h1>
+    <p class="sub">Not an app. A 60-minute visit with a local nurse practitioner.</p>
+    <div class="rule"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/></svg></div>
+    <div class="offer">New patients · <b>$249</b> first month</div>
+    <div class="tagline">Get ready, get set, get healthy</div>
+  </div>
+  <div class="logo corner"><img src="assets/shaperz-logo.png" alt="Shaperz Elite Wellness and Aesthetics"></div>
+</div>
+<script src="logo.js"></script><script src="photo.js"></script>
+</body></html>
