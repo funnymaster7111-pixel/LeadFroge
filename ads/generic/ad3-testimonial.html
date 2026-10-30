@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ad 3 – Patient Testimonial</title>
+<link rel="stylesheet" href="ads.css">
+<style>
+  body { background: var(--teal-mist); }
+  .ad {
+    background:
+      radial-gradient(circle at 100% 0%, rgba(42, 157, 151, 0.18) 0 300px, transparent 301px),
+      radial-gradient(circle at 0% 100%, rgba(19, 48, 91, 0.08) 0 360px, transparent 361px),
+      var(--teal-mist);
+  }
+
+  /* ---------- Feed 1080x1080 ---------- */
+  .card {
+    position: absolute;
+    inset: 56px;
+    padding: 64px 72px 56px;
+    background: var(--white);
+    border-radius: 40px;
+    box-shadow: 0 24px 60px rgba(12, 34, 68, 0.12);
+    display: flex; flex-direction: column;
+  }
+  .card-head { display: flex; justify-content: space-between; align-items: center; }
+  .label {
+    font-size: 24px; font-weight: 800; letter-spacing: 0.14em;
+    color: var(--teal);
+  }
+
+  .marks {
+    font-family: Georgia, "DejaVu Serif", serif;
+    font-size: 260px;
+    line-height: 0.7;
+    height: 130px;
+    margin-top: 40px;
+    color: var(--teal);
+    font-weight: 700;
+  }
+
+  blockquote {
+    margin-top: 20px;
+    font-size: 58px;
+    line-height: 1.22;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--navy);
+  }
+  /* The quote placeholder: obviously "replace me". */
+  blockquote .quote {
+    background: rgba(42, 157, 151, 0.12);
+    border: 4px dashed rgba(42, 157, 151, 0.6);
+    border-radius: 20px;
+    padding: 18px 26px;
+    display: block;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  .who {
+    margin-top: auto;
+    display: flex; align-items: center; gap: 24px;
+  }
+  .avatar {
+    flex: none;
+    width: 108px; height: 108px; border-radius: 50%;
+    background: var(--teal-mist);
+    border: 3px dashed rgba(42, 157, 151, 0.6);
+    display: grid; place-items: center;
+    color: var(--teal);
+  }
+  .avatar svg { width: 60px; height: 60px; }
+  .who .name { font-size: 36px; font-weight: 800; color: var(--navy); }
+  .who .stars { margin-top: 10px; }
+  .who .stars svg { width: 44px; height: 44px; }
+
+  .foot {
+    margin-top: 36px; padding-top: 28px;
+    border-top: 2px solid #e6edf2;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 26px; color: var(--muted); font-weight: 600;
+  }
+  .foot .brand-row { font-size: 26px; }
+  .foot .brand-mark { width: 44px; height: 44px; border-radius: 12px; }
+  .foot .brand-mark svg { width: 26px; height: 26px; }
+
+  /* ---------- Story 1080x1920 ---------- */
+  @media (max-aspect-ratio: 4/5) {
+    .card { inset: 210px 60px 340px; padding: 80px 72px 64px; }
+    .label { font-size: 28px; }
+    .marks { font-size: 360px; height: 180px; margin-top: 80px; }
+    blockquote { font-size: 72px; margin-top: 30px; }
+    blockquote .quote { padding: 26px 34px; }
+    .who { flex-direction: column; align-items: flex-start; gap: 28px; }
+    .avatar { width: 132px; height: 132px; }
+    .avatar svg { width: 72px; height: 72px; }
+    .who .name { font-size: 44px; }
+    .who .stars svg { width: 60px; height: 60px; }
+    .foot { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+<div class="ad">
+  <div class="card">
+
+    <div class="card-head">
+      <span class="label">PATIENT STORY</span>
+      <span class="label" style="color:var(--muted)">REAL REVIEW</span>
+    </div>
+
+    <div class="marks" aria-hidden="true">&ldquo;</div>
+
+    <blockquote>
+      <span class="quote">[Patient quote goes here — use a real review from the clinic]</span>
+    </blockquote>
+
+    <div class="who">
+      <span class="avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 21c.8-4.6 4.2-7 8.5-7s7.7 2.4 8.5 7z"/></svg></span>
+      <div>
+        <div class="name">– <span class="patient ph">[Patient Name]</span>, <span class="city ph">Your City</span></div>
+        <div class="stars" aria-label="5 stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div class="brand-row">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        <span class="clinic-name ph">Your Clinic Name</span>
+      </div>
+      <span>Care with <span class="doctor ph">Dr. [Name]</span></span>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

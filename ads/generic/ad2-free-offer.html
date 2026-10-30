@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ad 2 – Free Time Offer</title>
+<link rel="stylesheet" href="ads.css">
+<style>
+  body { background: var(--navy); }
+  .ad {
+    background:
+      radial-gradient(circle at 92% 8%, rgba(127, 202, 196, 0.22) 0 260px, transparent 261px),
+      radial-gradient(circle at 0% 100%, rgba(127, 202, 196, 0.16) 0 340px, transparent 341px),
+      linear-gradient(160deg, #173a6b 0%, var(--navy-deep) 100%);
+    color: var(--white);
+  }
+
+  /* ---------- Feed 1080x1080 ---------- */
+  .top {
+    position: absolute; top: 48px; left: 56px; right: 56px;
+    display: flex; align-items: center; gap: 18px;
+  }
+  .top .brand-row { color: var(--white); font-size: 30px; }
+
+  .headline { position: absolute; top: 150px; left: 56px; right: 56px; }
+  .headline h1 {
+    font-size: 94px;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    font-weight: 800;
+  }
+  .headline h1 .free {
+    color: var(--navy-deep);
+    background: var(--teal-soft);
+    border-radius: 18px;
+    padding: 0 18px;
+    margin-left: 4px;
+  }
+  .headline p {
+    margin-top: 26px;
+    font-size: 34px;
+    font-weight: 500;
+    color: #cfe3ef;
+  }
+  .headline p .city { color: var(--white); font-weight: 700; }
+
+  .calendar {
+    position: absolute;
+    left: 56px; bottom: 56px;
+    width: 700px;
+    padding: 52px 34px 30px;
+    background: var(--white);
+    border-radius: 32px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.28);
+    color: var(--navy);
+  }
+  .grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+  .grid .dow { text-align: center; font-size: 20px; font-weight: 700; color: var(--muted); padding-bottom: 4px; }
+  .grid .day {
+    height: 84px;
+    border-radius: 16px;
+    display: grid; place-items: center;
+    background: #f1f5f8;
+    color: #9aa8b6;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .grid .day.free { background: var(--teal); color: var(--white); }
+  .grid .day.free svg { width: 30px; height: 30px; }
+  .grid .day.start { background: var(--navy); }
+
+  .free-bracket {
+    position: absolute;
+    left: 30px;
+    top: -34px;
+    padding: 14px 22px;
+    border-radius: 18px;
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-weight: 900;
+    font-size: 34px;
+    letter-spacing: 0.04em;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    transform: rotate(-3deg);
+  }
+
+  .badge {
+    position: absolute;
+    right: 70px; bottom: 300px;
+    width: 250px; height: 250px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--navy-deep);
+    display: grid; place-items: center;
+    text-align: center;
+    transform: rotate(-10deg);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+  }
+  .badge::before {
+    content: "";
+    position: absolute; inset: 12px;
+    border: 3px dashed rgba(12, 34, 68, 0.45);
+    border-radius: 50%;
+  }
+  .badge b { display: block; font-size: 44px; line-height: 1; font-weight: 900; letter-spacing: -0.01em; }
+  .badge small { display: block; margin-top: 10px; font-size: 20px; font-weight: 800; letter-spacing: 0.12em; }
+
+  .care {
+    position: absolute;
+    right: 56px; bottom: 56px;
+    width: 250px;
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+  }
+  .care .avatars { display: flex; }
+  .care .avatars span {
+    width: 84px; height: 84px; border-radius: 50%;
+    border: 5px solid var(--navy);
+    margin-left: -22px;
+    background: var(--teal-mist);
+    display: grid; place-items: center;
+    color: var(--teal);
+  }
+  .care .avatars span:first-child { margin-left: 0; }
+  .care .avatars svg { width: 46px; height: 46px; }
+  .care p { font-size: 22px; font-weight: 600; text-align: center; color: #cfe3ef; line-height: 1.3; }
+
+  /* ---------- Story 1080x1920 ---------- */
+  @media (max-aspect-ratio: 4/5) {
+    .top { top: 210px; left: 72px; right: 72px; }
+    .top .brand-row { font-size: 34px; }
+    .headline { top: 330px; left: 72px; right: 72px; }
+    .headline h1 { font-size: 128px; }
+    .headline p { font-size: 42px; margin-top: 36px; }
+    .calendar { left: 72px; right: 72px; width: auto; bottom: 470px; padding: 70px 44px 40px; border-radius: 40px; }
+    .grid { gap: 14px; }
+    .grid .dow { font-size: 26px; }
+    .grid .day { height: 106px; font-size: 30px; border-radius: 22px; }
+    .grid .day.free svg { width: 42px; height: 42px; }
+    .free-bracket { top: -40px; left: 40px; font-size: 44px; }
+    .badge { right: 56px; bottom: auto; top: 690px; width: 280px; height: 280px; }
+    .badge b { font-size: 50px; }
+    .badge small { font-size: 22px; }
+    .care {
+      left: 72px; right: 72px; width: auto; bottom: 340px;
+      flex-direction: row; justify-content: center; gap: 22px;
+    }
+    .care .avatars span { width: 76px; height: 76px; }
+    .care p { font-size: 28px; text-align: left; }
+  }
+</style>
+</head>
+<body class="on-dark">
+<div class="ad">
+
+  <div class="top">
+    <div class="brand-row">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      <span class="clinic-name ph">Your Clinic Name</span>
+    </div>
+  </div>
+
+  <div class="headline">
+    <h1>Get Your First<br>2 Weeks <span class="free">FREE</span></h1>
+    <p>Physician-guided weight loss program in <span class="city ph">Your City</span></p>
+  </div>
+
+  <div class="calendar" aria-label="Calendar showing the first two weeks free">
+    <div class="grid" id="grid"></div>
+    <div class="free-bracket">2 WEEKS FREE</div>
+  </div>
+
+  <div class="badge"><div><b>THIS MONTH ONLY</b><small>LIMITED SPOTS</small></div></div>
+
+  <div class="care">
+    <div class="avatars" aria-hidden="true">
+      <span><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 21c.8-4.6 4.2-7 8.5-7s7.7 2.4 8.5 7z"/></svg></span>
+      <span><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 21c.8-4.6 4.2-7 8.5-7s7.7 2.4 8.5 7z"/></svg></span>
+      <span><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 21c.8-4.6 4.2-7 8.5-7s7.7 2.4 8.5 7z"/></svg></span>
+    </div>
+    <p>Your local care team, led by <span class="doctor ph">Dr. [Name]</span></p>
+  </div>
+
+</div>
+<script>
+  // Three weeks: the first two are highlighted as the free period.
+  const grid = document.getElementById('grid');
+  const check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  ['S','M','T','W','T','F','S'].forEach(d => grid.insertAdjacentHTML('beforeend', `<div class="dow">${d}</div>`));
+  for (let i = 1; i <= 21; i++) {
+    const cls = i === 1 ? 'day free start' : i <= 14 ? 'day free' : 'day';
+    grid.insertAdjacentHTML('beforeend', `<div class="${cls}">${i <= 14 ? check : i}</div>`);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ad 1 – Local Doctor vs. Online</title>
+<link rel="stylesheet" href="ads.css">
+<style>
+  /* ---------- Feed 1080x1080 ---------- */
+  .photo { inset: 0; }
+
+  .top {
+    position: absolute;
+    top: 44px; left: 44px; right: 44px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .photo-tag { top: 130px; left: 44px; }
+
+  .card {
+    position: absolute;
+    left: 44px; right: 44px; bottom: 44px;
+    padding: 40px 48px 42px;
+    background: var(--white);
+    border-radius: 36px;
+    box-shadow: 0 18px 50px rgba(12, 34, 68, 0.18);
+  }
+  .card h1 {
+    font-size: 66px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    color: var(--navy);
+  }
+  .card h1 .city { color: var(--teal); }
+  .card p {
+    margin-top: 18px;
+    font-size: 31px;
+    line-height: 1.3;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  .card p .doctor-line { color: var(--navy); font-weight: 700; }
+
+  .signoff {
+    display: none;
+  }
+
+  /* ---------- Story 1080x1920 ---------- */
+  @media (max-aspect-ratio: 4/5) {
+    .photo { inset: 0 0 auto 0; height: 1160px; }
+    .top { top: 270px; left: 60px; right: auto; }
+    .top .chip:last-child { display: none; } /* clinic name moves to the sign-off */
+    .photo-tag { top: auto; bottom: 150px; left: 60px; right: auto; }
+    .card {
+      left: 0; right: 0; bottom: 0;
+      height: 860px;
+      border-radius: 56px 56px 0 0;
+      padding: 64px 72px 0;
+      box-shadow: 0 -12px 40px rgba(12, 34, 68, 0.12);
+    }
+    .card h1 { font-size: 88px; }
+    .card p { font-size: 38px; margin-top: 26px; }
+    .signoff {
+      display: flex;
+      margin-top: 36px;
+      align-items: center;
+      gap: 18px;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+  }
+</style>
+</head>
+<body>
+<div class="ad">
+
+  <div class="photo" aria-label="Photo slot: your doctor in the clinic">
+    <!-- Stand-in illustration. Replace with a real, friendly photo of the doctor. -->
+    <svg class="photo-stand-in" viewBox="0 0 1080 1080" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#eef8f6"/>
+          <stop offset="1" stop-color="#d4ece9"/>
+        </linearGradient>
+        <linearGradient id="win" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#ffffff"/>
+          <stop offset="1" stop-color="#e3f3f1"/>
+        </linearGradient>
+        <linearGradient id="coat" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ffffff"/>
+          <stop offset="1" stop-color="#eef3f6"/>
+        </linearGradient>
+      </defs>
+      <rect width="1080" height="1080" fill="url(#wall)"/>
+      <!-- window light -->
+      <rect x="70" y="150" width="330" height="460" rx="24" fill="url(#win)"/>
+      <path d="M235 150v460M70 380h330" stroke="#cfe7e3" stroke-width="10"/>
+      <!-- plant -->
+      <g fill="#8fcfc8">
+        <ellipse cx="170" cy="700" rx="40" ry="90" transform="rotate(-25 170 700)"/>
+        <ellipse cx="240" cy="690" rx="38" ry="95" transform="rotate(18 240 690)"/>
+        <ellipse cx="205" cy="660" rx="34" ry="100"/>
+      </g>
+      <rect x="150" y="760" width="110" height="120" rx="18" fill="#13305b" opacity=".85"/>
+      <!-- doctor -->
+      <g transform="translate(110 -90) scale(0.9)">
+        <path d="M430 1080c0-250 70-380 230-410h60c160 30 230 160 230 410z" fill="url(#coat)" stroke="#d5e3ea" stroke-width="4"/>
+        <path d="M640 672l50 150 50-150z" fill="#13305b"/>
+        <path d="M640 672l-48 40 70 230M740 672l48 40-70 230" fill="none" stroke="#d5e3ea" stroke-width="8" stroke-linejoin="round"/>
+        <rect x="652" y="560" width="76" height="120" rx="30" fill="#c99e85"/>
+        <circle cx="690" cy="470" r="118" fill="#d8ae94"/>
+        <path d="M572 470c-6-110 60-170 120-170 80 0 128 60 122 150-30-60-90-80-150-70-40 6-70 40-92 90z" fill="#3a2a24"/>
+        <!-- stethoscope -->
+        <path d="M612 700c-30 90-10 170 50 190s110-60 100-190" fill="none" stroke="#2a9d97" stroke-width="12" stroke-linecap="round"/>
+        <circle cx="690" cy="900" r="24" fill="#2a9d97"/>
+        <!-- name badge -->
+        <rect x="790" y="770" width="96" height="40" rx="8" fill="#2a9d97"/>
+      </g>
+    </svg>
+    <span class="photo-tag">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="4"/></svg>
+      Your doctor's photo here
+    </span>
+  </div>
+
+  <div class="top">
+    <span class="chip">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+      <span class="city ph">Your City</span>
+    </span>
+    <span class="chip"><span class="clinic-name ph">Your Clinic Name</span></span>
+  </div>
+
+  <div class="card">
+    <h1>Real Weight Loss Care from a Real <span class="city ph">Your City</span> Doctor</h1>
+    <p>Not an app. Not a chatbot. <span class="doctor-line">A doctor who knows your name.</span></p>
+    <div class="signoff">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+      <span><span class="doctor ph">Dr. [Name]</span> &nbsp;·&nbsp; <span class="clinic-name ph">Your Clinic Name</span></span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GLP-1 Sample Ads</title>
+<style>
+  :root {
+    --bg: #f2f5f8;
+    --surface: #ffffff;
+    --ink: #1c2a3a;
+    --muted: #5b6b7d;
+    --line: #dfe6ec;
+    --navy: #13305b;
+    --teal: #2a9d97;
+    --ph-bg: rgba(42, 157, 151, 0.14);
+    --fb-blue: #1b74e4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d1520; --surface: #16212f; --ink: #e6edf4; --muted: #9aabbd; --line: #263446;
+      --navy: #9cc0ea; --ph-bg: rgba(127, 202, 196, 0.18);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d1520; --surface: #16212f; --ink: #e6edf4; --muted: #9aabbd; --line: #263446;
+    --navy: #9cc0ea; --ph-bg: rgba(127, 202, 196, 0.18);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.5 "Inter", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  header.page { max-width: 1240px; margin: 0 auto; padding: 40px 16px 8px; }
+  header.page h1 { margin: 0 0 6px; font-size: 30px; color: var(--navy); letter-spacing: -0.01em; }
+  header.page p { margin: 0; color: var(--muted); max-width: 760px; }
+
+  .ph { background: var(--ph-bg); border-bottom: 1px dashed currentColor; border-radius: 3px; padding: 0 3px; white-space: nowrap; }
+
+  section.ad {
+    max-width: 1240px; margin: 28px auto; padding: 0 16px;
+  }
+  section.ad > h2 { font-size: 20px; margin: 0 0 14px; color: var(--navy); }
+  section.ad > h2 small { font-weight: 500; color: var(--muted); font-size: 15px; margin-left: 8px; }
+
+  .row { display: grid; grid-template-columns: minmax(0, 500px) minmax(0, 300px) minmax(0, 1fr); gap: 24px; align-items: start; }
+  @media (max-width: 1100px) { .row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .fields { grid-column: 1 / -1; } }
+  @media (max-width: 680px) { .row { grid-template-columns: minmax(0, 1fr); } }
+
+  .label { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+
+  /* Facebook-style feed post mock */
+  .post { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .post-head { display: flex; gap: 10px; align-items: center; padding: 12px 14px 6px; }
+  .post-head .avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--teal); color: #fff; display: grid; place-items: center; font-weight: 800; }
+  .post-head b { display: block; font-size: 15px; }
+  .post-head small { color: var(--muted); font-size: 13px; }
+  .post-text { padding: 4px 14px 12px; font-size: 15px; white-space: pre-line; }
+  .post img, .story img { display: block; width: 100%; height: auto; }
+  .post-link { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 14px; background: color-mix(in srgb, var(--line) 45%, var(--surface)); }
+  .post-link small { display: block; color: var(--muted); font-size: 13px; }
+  .post-link b { display: block; font-size: 16px; }
+  .cta { flex: none; padding: 8px 14px; border-radius: 6px; background: color-mix(in srgb, var(--line) 80%, var(--surface)); font-weight: 700; font-size: 14px; }
+
+  .story { border-radius: 22px; overflow: hidden; border: 6px solid #0b1522; background: #0b1522; }
+
+  .fields { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
+  .fields dl { margin: 0; display: grid; grid-template-columns: 110px 1fr; gap: 8px 12px; }
+  .fields dt { color: var(--muted); font-size: 13px; font-weight: 600; padding-top: 2px; }
+  .fields dd { margin: 0; font-weight: 600; }
+  .fields dd small { color: var(--muted); font-weight: 500; margin-left: 6px; }
+  .fields .hook { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+  .fields .hook q { color: var(--ink); }
+  .links { margin-top: 12px; font-size: 14px; }
+  .links a { color: var(--teal); }
+
+  footer { max-width: 1240px; margin: 40px auto; padding: 0 16px 40px; color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+
+<header class="page">
+  <h1>GLP-1 Medical Weight Loss: Sample Facebook Ads</h1>
+  <p>Three generic ads, each shown as a feed post (1080x1080) and a story/reel (1080x1920). Highlighted text is a placeholder to swap for the clinic's real details. Full copy, the video script, and compliance notes are in <code>ad-copy.md</code>.</p>
+</header>
+
+<!-- ============ AD 1 ============ -->
+<section class="ad">
+  <h2>Ad 1: Local Doctor vs. Online <small>Friendly clinic post</small></h2>
+  <div class="row">
+    <div>
+      <div class="label">Feed · 1080x1080</div>
+      <article class="post">
+        <div class="post-head"><span class="avatar">+</span><div><b class="clinic-name">Your Clinic Name</b><small>Sponsored</small></div></div>
+        <div class="post-text">One-size-fits-all online programs treat you like a number. Here in <span class="city ph">Your City</span>, you get a real doctor who knows your name.
+
+Most online programs give you a quick form, a prescription, and a chat window. At <span class="clinic-name ph">Your Clinic Name</span>, you sit down face to face with <span class="doctor ph">Dr. [Name]</span> and build a plan around your health, your schedule, and your life.
+
+✔️ Personalized treatment plans
+✔️ FDA-approved medication options
+✔️ Ongoing accountability and support
+✔️ In-person visits right here in <span class="city ph">Your City</span>
+
+Book your consultation today and meet the doctor who'll be in your corner. 👇</div>
+        <img src="png/ad1-local-doctor-feed.png" alt="Ad 1 feed image">
+        <div class="post-link"><div><small>Real doctor. Real visits.</small><b>Weight Loss Care from a Local Doctor</b></div><span class="cta">Book Now</span></div>
+      </article>
+    </div>
+    <div>
+      <div class="label">Stories / Reels · 1080x1920</div>
+      <div class="story"><img src="png/ad1-local-doctor-story.png" alt="Ad 1 story image"></div>
+    </div>
+    <div class="fields">
+      <div class="label">Ad fields</div>
+      <dl>
+        <dt>Headline</dt><dd>Weight Loss Care from a Local Doctor <small>36/40</small></dd>
+        <dt>Description</dt><dd>Real doctor. Real visits. <small>25/30</small></dd>
+        <dt>CTA button</dt><dd>Book Now</dd>
+      </dl>
+      <p class="hook">Before "see more" (120 chars): <q>One-size-fits-all online programs treat you like a number. Here in Your City, you get a real doctor who knows your name.</q></p>
+      <p class="links"><a href="png/ad1-local-doctor-feed.png">Feed PNG</a> · <a href="png/ad1-local-doctor-story.png">Story PNG</a> · <a href="ad1-local-doctor.html">HTML source</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AD 2 ============ -->
+<section class="ad">
+  <h2>Ad 2: Free Time Offer <small>2 weeks free</small></h2>
+  <div class="row">
+    <div>
+      <div class="label">Feed · 1080x1080</div>
+      <article class="post">
+        <div class="post-head"><span class="avatar">+</span><div><b class="clinic-name">Your Clinic Name</b><small>Sponsored</small></div></div>
+        <div class="post-text">Get your first 2 weeks FREE in our physician-guided weight loss program in <span class="city ph">Your City</span>. Limited spots open this month.
+
+We keep our patient list small so every patient gets real attention from our local team. Here's what's included:
+
+✔️ Free one-on-one consultation with <span class="doctor ph">Dr. [Name]</span>
+✔️ Weekly check-ins with your local care team
+✔️ FDA-approved medication options, if they're right for you
+✔️ A plan built around you, not a template
+
+Once this month's spots are gone, they're gone. Tap Book Now to claim yours. 👇
+
+<em class="ph">[Offer terms: e.g. new patients only, medical eligibility required, medication cost not included. Add your clinic's real terms.]</em></div>
+        <img src="png/ad2-free-offer-feed.png" alt="Ad 2 feed image">
+        <div class="post-link"><div><small>Limited spots this month</small><b>Your First 2 Weeks FREE</b></div><span class="cta">Book Now</span></div>
+      </article>
+    </div>
+    <div>
+      <div class="label">Stories / Reels · 1080x1920</div>
+      <div class="story"><img src="png/ad2-free-offer-story.png" alt="Ad 2 story image"></div>
+    </div>
+    <div class="fields">
+      <div class="label">Ad fields</div>
+      <dl>
+        <dt>Headline</dt><dd>Your First 2 Weeks FREE <small>23/40</small></dd>
+        <dt>Description</dt><dd>Limited spots this month <small>24/30</small></dd>
+        <dt>CTA button</dt><dd>Book Now</dd>
+      </dl>
+      <p class="hook">Before "see more" (116 chars): <q>Get your first 2 weeks FREE in our physician-guided weight loss program in Your City. Limited spots open this month.</q></p>
+      <p class="links"><a href="png/ad2-free-offer-feed.png">Feed PNG</a> · <a href="png/ad2-free-offer-story.png">Story PNG</a> · <a href="ad2-free-offer.html">HTML source</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AD 3 ============ -->
+<section class="ad">
+  <h2>Ad 3: Patient Testimonial <small>Quote card + video script</small></h2>
+  <div class="row">
+    <div>
+      <div class="label">Feed · 1080x1080</div>
+      <article class="post">
+        <div class="post-head"><span class="avatar">+</span><div><b class="clinic-name">Your Clinic Name</b><small>Sponsored</small></div></div>
+        <div class="post-text">Don't take our word for it. Here's what our patients say. ⭐⭐⭐⭐⭐
+
+"<span class="quote ph">[Patient quote goes here — use a real review from the clinic]</span>"
+– <span class="patient ph">[Patient Name]</span>, <span class="city ph">Your City</span>
+
+Every plan at <span class="clinic-name ph">Your Clinic Name</span> starts with a free consultation with <span class="doctor ph">Dr. [Name]</span>, right here in town. Ready to start your own story? Book yours today. 👇
+
+<em>Individual results vary.</em></div>
+        <img src="png/ad3-testimonial-feed.png" alt="Ad 3 feed image">
+        <div class="post-link"><div><small>Book a free consultation</small><b>Hear It from Our Patients</b></div><span class="cta">Book Now</span></div>
+      </article>
+    </div>
+    <div>
+      <div class="label">Stories / Reels · 1080x1920</div>
+      <div class="story"><img src="png/ad3-testimonial-story.png" alt="Ad 3 story image"></div>
+    </div>
+    <div class="fields">
+      <div class="label">Ad fields</div>
+      <dl>
+        <dt>Headline</dt><dd>Hear It from Our Patients <small>25/40</small></dd>
+        <dt>Description</dt><dd>Book a free consultation <small>24/30</small></dd>
+        <dt>CTA button</dt><dd>Book Now</dd>
+      </dl>
+      <p class="hook">Use a real review from a patient who has given written consent. Never write a quote. The 30-second phone-filmed video version (hook, the patient's story in their own words, CTA) is in <code>ad-copy.md</code>.</p>
+      <p class="links"><a href="png/ad3-testimonial-feed.png">Feed PNG</a> · <a href="png/ad3-testimonial-story.png">Story PNG</a> · <a href="ad3-testimonial.html">HTML source</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  To customize: edit the placeholder elements (<code>.clinic-name</code>, <code>.city</code>, <code>.doctor</code>, <code>.patient</code>, <code>.quote</code>) in each ad's HTML, remove their <code>ph</code> class, set a real photo on <code>.photo</code> in Ad 1, then run <code>node render.js</code> to re-export the PNGs.
+</footer>
+</body>
+</html>
