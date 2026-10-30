@@ -4,7 +4,7 @@ Clinic: 3135 W. 111th Street, Chicago, IL 60655 (Mount Greenwood / Beverly)
 Offer: $249 first month for new patients
 CTA button (all ads): **Book Now**
 
-Brand: navy #1F3B57, gold #C9A44E, blush #F7DCDA fading to white, pink accent #E0709A. Fonts: Cinzel for headlines, Montserrat for body and prices, Great Vibes only for the tagline. Every ad ends with the tagline "Get ready, get set, get healthy". No people are shown. If you add photos later, use real Shaperz patients (with signed releases), not stock models.
+Brand (colors sampled from the logo): navy #1C3C58, gold #B8954F (logo gold runs #A8884C to #E0C478), blush #F8D8D4 fading to white, pink accent #E46894. Logo: `src/assets/shaperz-logo.png`, cut from the clinic's round logo. Fonts: Cinzel for headlines, Montserrat for body and prices, Great Vibes only for the tagline. Every ad ends with the tagline "Get ready, get set, get healthy". No people are shown. If you add photos later, use real Shaperz patients (with signed releases), not stock models.
 
 Compliance check for every ad: no drug names, no before/after or body imagery, no scales or tapes, no pounds-lost or guaranteed results, nothing that implies the viewer is overweight. Care is described as "Nurse Practitioner-led" and never as a "doctor" or "physician".
 
