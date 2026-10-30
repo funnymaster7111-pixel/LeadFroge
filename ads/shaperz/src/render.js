@@ -12,6 +12,15 @@ if (!require('fs').existsSync(path.join(__dirname, 'assets', 'shaperz-logo.png')
       const page = await browser.newPage({ viewport: { width: w, height: h } });
       await page.goto('file://' + path.join(__dirname, ad.split('-')[0] + '.html'));
       await page.evaluate(() => document.fonts.ready);
+      if (h === 1920) {
+        // Stories safe zone: logo and text must stay between y=250 and y=1570
+        const bad = await page.evaluate(() =>
+          [...document.querySelectorAll('.logo, h1, .sub, .badge, .price, .offer, .tagline, .card')]
+            .map(el => ({ el: el.className || el.tagName, r: el.getBoundingClientRect() }))
+            .filter(({ r }) => r.top < 250 || r.bottom > 1570)
+            .map(({ el, r }) => `${el} [${Math.round(r.top)}-${Math.round(r.bottom)}]`));
+        console.log(bad.length ? `  SAFE-ZONE VIOLATION in ${ad}: ${bad.join(', ')}` : `  ${ad} story: safe zone OK`);
+      }
       const out = path.join(__dirname, '..', `${ad}-${w}x${h}.png`);
       await page.screenshot({ path: out });
       console.log('wrote', out);

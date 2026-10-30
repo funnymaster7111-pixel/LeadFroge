@@ -23,9 +23,9 @@ body{font-family:var(--sans);color:var(--navy);-webkit-font-smoothing:antialiase
 .ad::before,.ad::after{content:"";position:absolute;pointer-events:none;border:2px solid var(--gold)}
 .ad::before{inset:28px}
 .ad::after{inset:38px;border-width:1px;opacity:.55}
-.logo{position:relative;height:230px;width:230px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:50%;box-shadow:0 10px 24px rgba(28,60,88,.12)}
+.logo{position:relative;height:170px;width:170px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:50%;box-shadow:0 10px 24px rgba(28,60,88,.12)}
 .logo img{max-height:100%;max-width:100%;object-fit:contain}
-.logo.missing{width:420px;border-radius:12px;box-shadow:none;border:2px dashed var(--pink);border-radius:12px;font:600 20px/1.3 var(--sans);letter-spacing:2px;color:var(--pink)}
+.logo.missing{width:170px;font-size:12px;border-radius:12px;box-shadow:none;border:2px dashed var(--pink);border-radius:12px;font:600 20px/1.3 var(--sans);letter-spacing:2px;color:var(--pink)}
 .rule{display:flex;align-items:center;gap:16px;color:var(--gold);width:360px;margin:0 auto}
 .rule::before,.rule::after{content:"";flex:1;height:1.5px;background:var(--gold)}
 .rule svg{width:22px;height:22px;flex:none}
@@ -34,3 +34,11 @@ h1{font-family:var(--serif);font-weight:700;color:var(--navy);text-transform:upp
 .tagline{font-family:var(--script);color:var(--gold);line-height:1;margin-top:auto;position:relative}
 .cta{display:inline-flex;align-items:center;gap:12px;background:var(--navy);color:#fff;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;border-radius:999px;border:2px solid var(--gold)}
 .cta .arrow{color:var(--gold-soft)}
+/* Feed: logo tucked in the bottom-right corner, away from the headline/price */
+.logo.corner{position:absolute;right:62px;bottom:58px}
+/* Stories: 200px logo, last item above the 350px bottom UI zone; all content stays between y=250 and y=1570 */
+@media (max-aspect-ratio:3/4){
+  .ad{padding:250px 90px 350px}
+  .logo{height:200px;width:200px}
+  .logo.corner{position:static;order:99;margin-top:36px}
+}
