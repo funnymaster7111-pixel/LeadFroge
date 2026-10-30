@@ -1,16 +1,36 @@
+/* Shaperz brand: navy text, gold accents, blush-to-white backgrounds.
+   Palette is the approximate one from the brief; re-sample from assets/shaperz-logo.png once it's downloaded. */
+@font-face{font-family:Cinzel;font-weight:500;src:url(fonts/cinzel-latin-500-normal.woff2)}
+@font-face{font-family:Cinzel;font-weight:600;src:url(fonts/cinzel-latin-600-normal.woff2)}
+@font-face{font-family:Cinzel;font-weight:700;src:url(fonts/cinzel-latin-700-normal.woff2)}
+@font-face{font-family:"Great Vibes";font-weight:400;src:url(fonts/great-vibes-latin-400-normal.woff2)}
+@font-face{font-family:Montserrat;font-weight:400;src:url(fonts/montserrat-latin-400-normal.woff2)}
+@font-face{font-family:Montserrat;font-weight:500;src:url(fonts/montserrat-latin-500-normal.woff2)}
+@font-face{font-family:Montserrat;font-weight:600;src:url(fonts/montserrat-latin-600-normal.woff2)}
+@font-face{font-family:Montserrat;font-weight:700;src:url(fonts/montserrat-latin-700-normal.woff2)}
+@font-face{font-family:Montserrat;font-weight:800;src:url(fonts/montserrat-latin-800-normal.woff2)}
 :root{
-  --navy:#13294B; --navy-2:#1E3A66; --teal:#2E8C86; --teal-soft:#7CCBC4;
-  --mint:#E7F4F2; --sand:#F6F1EA; --white:#FFFFFF; --gold:#F2B53B;
-  --sans:"Inter",sans-serif; --display:"Inter Display","Inter",sans-serif;
+  --navy:#1F3B57; --gold:#C9A44E; --gold-soft:#E4CF9C; --blush:#F7DCDA; --pink:#E0709A; --white:#FFFFFF;
+  --serif:Cinzel,serif; --sans:Montserrat,sans-serif; --script:"Great Vibes",cursive;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100vw;height:100vh;overflow:hidden}
 body{font-family:var(--sans);color:var(--navy);-webkit-font-smoothing:antialiased}
-.ad{position:relative;width:100vw;height:100vh;overflow:hidden}
-.logo{display:block;height:84px}
-.cta{display:inline-flex;align-items:center;gap:14px;background:var(--navy);color:#fff;font-weight:700;
-  font-size:30px;padding:22px 40px;border-radius:999px;letter-spacing:.2px}
-.cta .arrow{color:var(--teal-soft)}
-.np{display:inline-block;font-weight:600;font-size:22px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal)}
-/* Story (9:16) — keep text out of the top ~250px and bottom ~340px UI zones */
-@media (max-aspect-ratio:3/4){ .logo{height:96px} .cta{font-size:36px;padding:26px 48px} }
+.ad{position:relative;width:100vw;height:100vh;overflow:hidden;
+  background:linear-gradient(180deg,var(--blush) 0%,#FBEDEB 45%,var(--white) 100%);
+  display:flex;flex-direction:column;align-items:center;text-align:center;padding:76px 90px 70px}
+/* thin double gold frame */
+.ad::before,.ad::after{content:"";position:absolute;pointer-events:none;border:2px solid var(--gold)}
+.ad::before{inset:28px}
+.ad::after{inset:38px;border-width:1px;opacity:.55}
+.logo{position:relative;height:140px;max-width:560px;display:flex;align-items:center;justify-content:center}
+.logo img{max-height:100%;max-width:100%;object-fit:contain}
+.logo.missing{width:420px;border:2px dashed var(--pink);border-radius:12px;font:600 20px/1.3 var(--sans);letter-spacing:2px;color:var(--pink)}
+.rule{display:flex;align-items:center;gap:16px;color:var(--gold);width:360px;margin:0 auto}
+.rule::before,.rule::after{content:"";flex:1;height:1.5px;background:var(--gold)}
+.rule svg{width:22px;height:22px;flex:none}
+h1{font-family:var(--serif);font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px;line-height:1.12}
+.sub{font-weight:500;color:var(--navy);opacity:.85}
+.tagline{font-family:var(--script);color:var(--gold);line-height:1;margin-top:auto;position:relative}
+.cta{display:inline-flex;align-items:center;gap:12px;background:var(--navy);color:#fff;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;border-radius:999px;border:2px solid var(--gold)}
+.cta .arrow{color:var(--gold-soft)}

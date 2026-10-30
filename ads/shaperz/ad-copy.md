@@ -4,6 +4,8 @@ Clinic: 3135 W. 111th Street, Chicago, IL 60655 (Mount Greenwood / Beverly)
 Offer: $249 first month for new patients
 CTA button (all ads): **Book Now**
 
+Brand: navy #1F3B57, gold #C9A44E, blush #F7DCDA fading to white, pink accent #E0709A. Fonts: Cinzel for headlines, Montserrat for body and prices, Great Vibes only for the tagline. Every ad ends with the tagline "Get ready, get set, get healthy". No people are shown. If you add photos later, use real Shaperz patients (with signed releases), not stock models.
+
 Compliance check for every ad: no drug names, no before/after or body imagery, no scales or tapes, no pounds-lost or guaranteed results, nothing that implies the viewer is overweight. Care is described as "Nurse Practitioner-led" and never as a "doctor" or "physician".
 
 ---
@@ -26,6 +28,8 @@ Images: `ad1-local-1080x1080.png` (feed) · `ad1-local-1080x1920.png` (Stories/R
 > New patients: $249 for the first month.
 > 📍 3135 W. 111th Street, Chicago
 > Tap "Book Now" to schedule your visit.
+>
+> Get ready, get set, get healthy. 💛
 
 **Headline:** Local Weight Loss Care on 111th St
 **Description:** Nurse Practitioner-led care
@@ -53,6 +57,8 @@ Images: `ad2-offer-1080x1080.png` (feed) · `ad2-offer-1080x1920.png` (Stories/R
 > Oral and injectable options are available when medically appropriate. Nurse Practitioner-led care at 3135 W. 111th Street in Chicago.
 >
 > Tap "Book Now" to claim your $249 first month.
+>
+> Get ready, get set, get healthy. 💛
 
 **Headline:** $249 First Month for New Patients
 **Description:** Labs + 3D body scan included
@@ -76,6 +82,8 @@ Images: `ad3-testimonial-1080x1080.png` (feed) · `ad3-testimonial-1080x1920.png
 > Every patient starts with a 60-minute, Nurse Practitioner-led visit, right here on 111th Street. New patients get their first month for $249, including labs, a 3D body scan, and a meal plan.
 >
 > Tap "Book Now" to schedule your first visit.
+>
+> Get ready, get set, get healthy. 💛
 
 **Headline:** Hear It From Our Patients
 **Description:** $249 First Month Special
@@ -93,7 +101,7 @@ Images: `ad3-testimonial-1080x1080.png` (feed) · `ad3-testimonial-1080x1920.png
 | 0:03–0:10 | Patient talking | *Prompt: "Why did you choose a local clinic over an online program?"* | **Why a local clinic?** |
 | 0:10–0:18 | Patient talking; B-roll cutaway: the nurse practitioner greeting them at the door, then the two of them talking at the consult table | *Prompt: "What was your first visit like?"* | **A 60-minute first visit** |
 | 0:18–0:24 | Patient talking | *Prompt: "How would you describe the care you get here?"* (Steer toward the experience, not numbers.) | **Nurse Practitioner-led care** |
-| 0:24–0:30 | End card: logo on navy, $249 badge, address | Voiceover (staff): "New patients get their first month for $249, with labs, a 3D body scan, and a meal plan included. Shaperz Elite, on 111th Street. Book today." | **$249 First Month · New Patients** · 3135 W. 111th St · **Book Now** |
+| 0:24–0:30 | End card: logo on a blush-to-white background with a thin gold border, $249 badge, address | Voiceover (staff): "New patients get their first month for $249, with labs, a 3D body scan, and a meal plan included. Shaperz Elite, on 111th Street. Get ready, get set, get healthy." | **$249 First Month · New Patients** · 3135 W. 111th St · **Book Now** · *Get ready, get set, get healthy* (script) |
 
 **Rules for filming and editing (Meta policy):**
 - No scales, measuring tapes, mirrors, body close-ups, or before/after shots. Keep the frame at chest height or above.

@@ -1,14 +1,19 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Shaperz Ad Preview</title>
 <style>
-:root{--navy:#13294B;--teal:#2E8C86;--mint:#E7F4F2;--line:#DCE3EA;--muted:#5A6B82;--bg:#F4F6F8;--card:#fff}
+@font-face{font-family:Cinzel;font-weight:700;src:url(src/fonts/cinzel-latin-700-normal.woff2)}
+@font-face{font-family:"Great Vibes";src:url(src/fonts/great-vibes-latin-400-normal.woff2)}
+@font-face{font-family:Montserrat;font-weight:500;src:url(src/fonts/montserrat-latin-500-normal.woff2)}
+@font-face{font-family:Montserrat;font-weight:600;src:url(src/fonts/montserrat-latin-600-normal.woff2)}
+:root{--navy:#1F3B57;--teal:#E0709A;--mint:#FBEDEB;--line:#E8D9C0;--muted:#6B7A8C;--bg:#FDF7F6;--card:#fff;--gold:#C9A44E}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);font-family:Inter,system-ui,sans-serif;color:var(--navy)}
+body{margin:0;background:linear-gradient(180deg,#F7DCDA,#fff 600px);font-family:Montserrat,system-ui,sans-serif;color:var(--navy)}
 header{padding:28px 32px 8px;max-width:1500px;margin:auto}
-header h1{margin:0;font-size:26px}
+header h1{margin:0;font:700 26px Cinzel,serif;letter-spacing:1px}
+header h1 em{font:400 34px "Great Vibes",cursive;color:var(--gold);margin-left:10px}
 header p{margin:6px 0 0;color:var(--muted);font-size:14px}
-.ad{max-width:1500px;margin:20px auto;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;grid-template-columns:minmax(300px,1fr) auto auto;gap:24px;align-items:start}
-h2{margin:0 0 12px;font-size:19px}
+.ad{max-width:1500px;margin:20px auto;background:var(--card);border:1px solid var(--gold);border-radius:16px;padding:24px;display:grid;grid-template-columns:minmax(300px,1fr) auto auto;gap:24px;align-items:start}
+h2{margin:0 0 12px;font:700 19px Cinzel,serif;letter-spacing:.5px}
 h2 span{color:var(--teal)}
 .label{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin:14px 0 4px}
 .primary{white-space:pre-line;font-size:14px;line-height:1.5;background:var(--bg);border-radius:10px;padding:12px 14px}
@@ -23,7 +28,7 @@ figcaption{font-size:12px;color:var(--muted);margin-top:6px}
 .note{font-size:13px;color:#8A5A00;background:#FFF6DD;border-radius:8px;padding:8px 10px;margin-top:12px}
 @media (max-width:1100px){.ad{grid-template-columns:1fr}.sq{width:100%;height:auto}.st{width:56%;height:auto;margin:auto}}
 </style></head><body>
-<header><h1>Shaperz Elite: Facebook Ads, Round 1</h1><p>Feed is 1080×1080 and Stories/Reels is 1080×1920. The highlighted part of each primary text is the opening line people see before "See more". Full copy and the video script are in ad-copy.md.</p></header>
+<header><h1>Shaperz Elite: Facebook Ads, Round 2<em>Get ready, get set, get healthy</em></h1><p>Feed is 1080×1080 and Stories/Reels is 1080×1920. The highlighted part of each primary text is the opening line people see before "See more". Full copy and the video script are in ad-copy.md.</p></header>
 
 <section class="ad">
   <div>
@@ -40,7 +45,9 @@ No app questionnaire and no shipped box from someone who's never met you. At Sha
 
 New patients: $249 for the first month.
 📍 3135 W. 111th Street, Chicago
-Tap "Book Now" to schedule your visit.</div>
+Tap "Book Now" to schedule your visit.
+
+Get ready, get set, get healthy. 💛</div>
     <div class="meta" style="margin-top:12px"><div><small>Headline (34)</small>Local Weight Loss Care on 111th St</div><div><small>Description (27)</small>Nurse Practitioner-led care</div><div><small>CTA</small>Book Now</div></div>
   </div>
   <figure><img class="sq" src="ad1-local-1080x1080.png" alt="Ad 1 feed"><figcaption>1080×1080</figcaption></figure>
@@ -64,7 +71,9 @@ Here's everything your first month includes:
 
 Oral and injectable options are available when medically appropriate. Nurse Practitioner-led care at 3135 W. 111th Street in Chicago.
 
-Tap "Book Now" to claim your $249 first month.</div>
+Tap "Book Now" to claim your $249 first month.
+
+Get ready, get set, get healthy. 💛</div>
     <div class="meta" style="margin-top:12px"><div><small>Headline (33)</small>$249 First Month for New Patients</div><div><small>Description (28)</small>Labs + 3D body scan included</div><div><small>CTA</small>Book Now</div></div>
   </div>
   <figure><img class="sq" src="ad2-offer-1080x1080.png" alt="Ad 2 feed"><figcaption>1080×1080</figcaption></figure>
@@ -82,7 +91,9 @@ Tap "Book Now" to claim your $249 first month.</div>
 
 Every patient starts with a 60-minute, Nurse Practitioner-led visit, right here on 111th Street. New patients get their first month for $249, including labs, a 3D body scan, and a meal plan.
 
-Tap "Book Now" to schedule your first visit.</div>
+Tap "Book Now" to schedule your first visit.
+
+Get ready, get set, get healthy. 💛</div>
     <div class="meta" style="margin-top:12px"><div><small>Headline (25)</small>Hear It From Our Patients</div><div><small>Description (24)</small>$249 First Month Special</div><div><small>CTA</small>Book Now</div></div>
     <div class="note">Swap in a real Google review and get the patient's written permission before launch. The 30-second video script is in ad-copy.md.</div>
   </div>

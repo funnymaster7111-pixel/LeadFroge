@@ -3,6 +3,8 @@ const { chromium } = require('playwright');
 const path = require('path');
 const ads = ['ad1-local', 'ad2-offer', 'ad3-testimonial'];
 const only = process.argv.slice(2);
+if (!require('fs').existsSync(path.join(__dirname, 'assets', 'shaperz-logo.png')))
+  console.warn('WARNING: src/assets/shaperz-logo.png is missing; ads will render with an empty logo slot.');
 (async () => {
   const browser = await chromium.launch();
   for (const ad of ads.filter(a => !only.length || only.includes(a))) {
