@@ -1,0 +1,40 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Shaperz Ad 1 – Local Care</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+.ad{background:linear-gradient(180deg,#fff 0%,var(--mint) 70%);display:flex;flex-direction:column}
+.top{padding:56px 64px 0}
+h1{font-family:var(--display);font-weight:800;font-size:76px;line-height:1.02;letter-spacing:-1.5px;margin-top:34px;max-width:900px}
+h1 em{font-style:normal;color:var(--teal)}
+.sub{font-size:32px;font-weight:500;line-height:1.3;margin-top:20px;color:var(--navy-2);max-width:980px}
+.scene{flex:1;display:flex;align-items:flex-end}
+.scene img{width:100%;display:block}
+.cta{position:absolute;right:56px;bottom:40px;font-size:26px;padding:18px 32px}
+.tag{position:absolute;left:56px;bottom:52px;font-weight:700;font-size:20px;letter-spacing:2px;color:var(--navy);text-transform:uppercase;opacity:.8}
+@media (max-aspect-ratio:3/4){
+  .top{padding:250px 72px 0}
+  h1{font-size:104px;margin-top:56px}
+  .sub{font-size:42px;margin-top:30px}
+  .row{display:flex;align-items:center;gap:28px;margin-top:44px}
+  .cta,.tag{position:static}
+  .cta{font-size:32px}
+  .tag{font-size:22px}
+  .scene{background:linear-gradient(transparent calc(100% - 100px),#E6DCCF 0)}
+  .scene img{width:112%;margin-left:-6%}
+}
+</style></head><body>
+<div class="ad">
+  <div class="top">
+    <img class="logo" src="logo.svg" alt="Shaperz Elite Wellness and Aesthetics">
+    <h1>Real Weight Loss Care, Right Here on <em>111th Street</em></h1>
+    <p class="sub">Not an app. A 60-minute visit with a local nurse practitioner.</p>
+    <div class="row"></div>
+  </div>
+  <div class="scene"><img src="scene-111th.svg" alt=""></div>
+  <div class="tag">Nurse Practitioner-led</div>
+  <div class="cta">Book your visit <span class="arrow">→</span></div>
+</div>
+<script>
+// Stories: move CTA + tag into the text column so they clear the bottom UI zone
+if (innerHeight > innerWidth * 1.3) { const r = document.querySelector('.row'); r.append(document.querySelector('.cta'), document.querySelector('.tag')); }
+</script>
+</body></html>

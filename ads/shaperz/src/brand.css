@@ -1,0 +1,16 @@
+:root{
+  --navy:#13294B; --navy-2:#1E3A66; --teal:#2E8C86; --teal-soft:#7CCBC4;
+  --mint:#E7F4F2; --sand:#F6F1EA; --white:#FFFFFF; --gold:#F2B53B;
+  --sans:"Inter",sans-serif; --display:"Inter Display","Inter",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden}
+body{font-family:var(--sans);color:var(--navy);-webkit-font-smoothing:antialiased}
+.ad{position:relative;width:100vw;height:100vh;overflow:hidden}
+.logo{display:block;height:84px}
+.cta{display:inline-flex;align-items:center;gap:14px;background:var(--navy);color:#fff;font-weight:700;
+  font-size:30px;padding:22px 40px;border-radius:999px;letter-spacing:.2px}
+.cta .arrow{color:var(--teal-soft)}
+.np{display:inline-block;font-weight:600;font-size:22px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal)}
+/* Story (9:16) — keep text out of the top ~250px and bottom ~340px UI zones */
+@media (max-aspect-ratio:3/4){ .logo{height:96px} .cta{font-size:36px;padding:26px 48px} }
