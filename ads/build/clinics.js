@@ -1,0 +1,142 @@
+// Per-clinic brand + copy for the v3 ad set. render.js turns each entry into
+// 3 ads x 2 sizes. Photo files live in ads/<slug>/photos/ (see photos.md there).
+
+module.exports = [
+  {
+    slug: 'shaperz',
+    name: 'Shaperz Elite Wellness & Aesthetics',
+    logo: 'logo.png',
+    logoFallback: { top: 'SHAPERZ', bottom: 'ELITE WELLNESS & AESTHETICS' },
+    colors: { bg: '#121E3F', bg2: '#F9DCE4', accent: '#E9B949', pop: '#FF2E8A', ink: '#121E3F', light: '#FFFFFF' },
+    script: 'GreatVibes',
+    footer: '3135 W. 111th St, Chicago  •  FSA/HSA accepted',
+    ads: {
+      ad1: {
+        photo: 'hero-1', photoNote: 'STOCK: smiling Black woman 30-55, glam, activewear',
+        bg: 'bg', circle: 'pop',
+        lines: [
+          { t: 'Medical', style: 'heavy', color: 'light', size: 100 },
+          { t: 'WEIGHT LOSS', style: 'block', color: 'accent', size: 168 },
+          { t: 'on 111th St', style: 'script', color: 'pop', size: 120 },
+        ],
+        chips: ['Semaglutide', 'Tirzepatide', 'Oral or injectable'],
+        led: 'Led by Lynn St. Victor-Luckett, FNP-BC',
+        ledSub: 'Obesity medicine nurse practitioner',
+        button: 'Book Your Visit', buttonBg: 'pop', buttonInk: 'light',
+      },
+      ad2: {
+        photo: 'hero-2', photoNote: 'STOCK: confident Black woman 30-55, glam, casual',
+        bg: 'bg2', circle: 'pop', ink: 'ink',
+        kicker: 'NEW PATIENT SPECIAL', kickerBg: 'ink', kickerInk: 'light',
+        price: '$249', priceColor: 'pop', priceSize: 300,
+        priceSub: 'FIRST MONTH', priceSubColor: 'ink',
+        checks: ['Labs + hormone review', 'ShapeScale 3D body scan', 'Meal plan & exercise guidance', '60-minute visit'],
+        checkColor: 'pop',
+        button: 'Claim Your Spot', buttonBg: 'ink', buttonInk: 'accent',
+      },
+      ad3: {
+        photo: 'provider', photoNote: 'REAL: Lynn St. Victor-Luckett headshot from shaperzwellness.com',
+        bg: 'bg', circle: 'accent',
+        meet: 'Meet', first: 'LYNN', firstColor: 'accent', firstSize: 220,
+        role: 'your weight loss nurse practitioner',
+        credential: 'Lynn St. Victor-Luckett, FNP-BC',
+        points: ['30 years of experience', '60-minute first visit', 'Local office on 111th St'],
+        award: { top: 'BEST OF', mid: 'MEDICAL SPA', year: '2025', bottom: 'BusinessRate • South Side Chicago' },
+        stat: '3,000+ clients helped',
+        button: 'Book With Lynn', buttonBg: 'pop', buttonInk: 'light',
+      },
+    },
+  },
+  {
+    slug: 'virtualhealth78',
+    name: 'Virtual Health 78 & Wellness Center',
+    logo: 'logo.png',
+    // No website and no logo found yet: render a clean wordmark, clearly flagged.
+    logoFallback: { top: 'VIRTUAL HEALTH 78', bottom: '& WELLNESS CENTER', flag: '[REPLACE WITH LOGO]' },
+    colors: { bg: '#0B6670', bg2: '#FFD23F', accent: '#FFD23F', pop: '#FFD23F', ink: '#073E45', light: '#FFFFFF' },
+    script: 'KaushanScript',
+    footer: '6142 Roosevelt Rd, Oak Park  •  In person or telehealth',
+    ads: {
+      ad1: {
+        photo: 'hero-1', photoNote: 'STOCK: warm, approachable woman 30-55, everyday clothes (diverse)',
+        bg: 'bg', circle: 'accent',
+        lines: [
+          { t: "Oak Park's", style: 'script', color: 'light', size: 112 },
+          { t: 'WEIGHT LOSS', style: 'block', color: 'accent', size: 168 },
+          { t: 'Clinic', style: 'heavy', color: 'light', size: 112 },
+        ],
+        tag: 'Ready to start this month?',
+        led: 'Led by Tatanisha Funches, FNP-C',
+        ledSub: 'Family nurse practitioner',
+        button: 'Book Free Consult', buttonBg: 'accent', buttonInk: 'ink',
+      },
+      ad2: {
+        photo: 'hero-2', photoNote: 'STOCK: smiling adult 30-55 (diverse), casual, energetic',
+        bg: 'bg2', circle: 'light', ink: 'ink',
+        kicker: 'READY TO START THIS MONTH?', kickerBg: 'ink', kickerInk: 'accent',
+        price: 'FREE', priceColor: 'ink', priceSize: 280,
+        priceSub: 'CONSULT', priceSubColor: 'ink',
+        sticker: 'Then $___ first month',
+        checks: ['Medical weight loss plan', 'Labs done in-office', 'Primary care, same team', 'Telehealth follow-ups'],
+        checkColor: 'ink',
+        button: 'Book Free Consult', buttonBg: 'ink', buttonInk: 'accent',
+      },
+      ad3: {
+        photo: 'provider', photoNote: 'REAL: Tatanisha Funches photo from Facebook/Google profile',
+        bg: 'bg', circle: 'accent',
+        meet: 'Meet', first: 'TATANISHA', firstColor: 'accent', firstSize: 150,
+        role: 'your weight loss nurse practitioner',
+        credential: 'Tatanisha Funches, FNP-C',
+        points: ['Board-certified family NP', 'Weight loss + primary care', 'Local office on Roosevelt Rd'],
+        button: 'Book Free Consult', buttonBg: 'accent', buttonInk: 'ink',
+      },
+    },
+  },
+  {
+    slug: 'novaleo',
+    name: 'Novaleo Weight & Wellness',
+    logo: 'logo.png',
+    logoFallback: { top: 'NOVALEO', bottom: 'WEIGHT & WELLNESS' },
+    // PROVISIONAL: novaweightandwellness.com was unreachable from the build
+    // session, so these are not yet pulled from the logo. Replace with the
+    // logo's exact hex values (pushed bolder) once the logo is downloaded.
+    colors: { bg: '#163F4D', bg2: '#F4EFE6', accent: '#F2B544', pop: '#F2B544', ink: '#163F4D', light: '#FFFFFF' },
+    script: 'DMSerifDisplay-Italic',
+    footer: 'Grand Rapids office  •  Telehealth in MI & WI',
+    ads: {
+      ad1: {
+        photo: 'hero-1', photoNote: 'STOCK: Midwestern woman 35-55, calm and relieved, natural light',
+        bg: 'bg', circle: 'accent',
+        lines: [
+          { t: 'Weight loss', style: 'serif', color: 'light', size: 110 },
+          { t: 'STALLED?', style: 'block', color: 'accent', size: 200 },
+          { t: 'Find out why.', style: 'script', color: 'light', size: 100 },
+        ],
+        tag: 'Even if your GLP-1 stopped working',
+        led: 'Led by Katie Long, NP-C',
+        ledSub: '20+ years as a nurse practitioner',
+        button: 'Book Free Assessment Call', buttonBg: 'accent', buttonInk: 'ink',
+      },
+      ad2: {
+        photo: 'hero-2', photoNote: 'STOCK: woman 35-55, relieved smile, natural light, casual',
+        bg: 'bg2', circle: 'accent', ink: 'ink',
+        kicker: 'ROOT-CAUSE INTAKE', kickerBg: 'ink', kickerInk: 'accent',
+        price: '$97', priceColor: 'ink', priceSize: 300,
+        priceSub: '60-MINUTE VISIT', priceSubColor: 'ink',
+        sticker: 'Start with a FREE call',
+        checks: ['60 min with your NP', 'History, meds & habits reviewed', 'Why progress stalled', 'Clear next-step plan'],
+        checkColor: 'ink',
+        button: 'Book Your Intake', buttonBg: 'ink', buttonInk: 'accent',
+      },
+      ad3: {
+        photo: 'provider', photoNote: 'REAL: Katie Long headshot from novaweightandwellness.com',
+        bg: 'bg', circle: 'accent',
+        meet: 'Meet', first: 'KATIE', firstColor: 'accent', firstSize: 220,
+        role: 'your weight loss nurse practitioner',
+        credential: 'Kathryn "Katie" Long, NP-C',
+        points: ['20+ years of experience', '60-minute root-cause visits', 'Grand Rapids + MI/WI telehealth'],
+        button: 'Book Free Assessment Call', buttonBg: 'accent', buttonInk: 'ink',
+      },
+    },
+  },
+];
