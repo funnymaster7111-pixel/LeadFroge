@@ -9,7 +9,7 @@
 | 2 · Meet Katie | `katie-blue-shirt` | `novaleo-v4-ad2-meet-katie-{feed,story}.png` |
 | 3 · Only 4 spots / Root Cause Restoration Program | `katie-couch` | `novaleo-v4-ad3-program-{feed,story}.png` |
 
-Every image shows the service, the offer (free assessment call) and social proof (Board-Certified NP · 20+ years · 4.9 on Google). Copy and the Instant Form: `ad-copy.md`. Photo sources: `photos.md`. Stories keep the top 180px and bottom 290px free of key text for Meta's overlay.
+Every image shows the service, the offer (free assessment call) and social proof (Board-Certified NP · 20+ years · 5.0 on Google). Copy and the Instant Form: `ad-copy.md`. Photo sources: `photos.md`. Stories keep the top 180px and bottom 290px free of key text for Meta's overlay.
 
 ## Build
 ```

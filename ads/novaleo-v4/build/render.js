@@ -29,9 +29,9 @@ const FONT_CSS = [
   font('Playfair', 'playfair-display-latin-800-italic.woff2', 800, 'italic'),
 ].join('\n');
 
-// Social proof shown on every ad. GOOGLE_RATING is the client-stated Google rating (Nov 2026);
-// set it to null to drop the stars row if it can't be confirmed on her Google Business Profile.
-const GOOGLE_RATING = '4.9';
+// Social proof shown on every ad. GOOGLE_RATING is her Google Maps rating, 5.0 from 9 reviews
+// (photos/google-rating-proof-2026-11.png). Update it if the rating changes; null drops the stars row.
+const GOOGLE_RATING = '5.0';
 
 const LOGO = dataUri(path.join(PHOTOS, 'novaleo-logo-from-v3.png'));
 const cut = (name) => dataUri(path.join(PHOTOS, `katie-${name}-cut.png`));

@@ -1,15 +1,15 @@
 # Novaleo Weight & Wellness: ad copy v4
 
-Katie Long, NP-C (Board-Certified NP) · 20+ years · 4.9 on Google · Telehealth across all of Michigan & Wisconsin.
+Katie Long, NP-C (Board-Certified NP) · 20+ years · 5.0 on Google · Telehealth across all of Michigan & Wisconsin.
 Audience: women 35-55 (Meta minimum is 18+ for weight-loss ads; set age 35-55, women, MI + WI).
 Objective: Leads, with a Meta Instant Form (below). Button on every ad: **Book Now**.
 
 Rules followed:
 - Katie's real photos on every ad. No stock people.
-- Every image shows the service (root-cause weight loss), the offer (FREE assessment call) and social proof (Board-Certified NP · 20+ years · ★★★★★ 4.9 on Google).
+- Every image shows the service (root-cause weight loss), the offer (FREE assessment call) and social proof (Board-Certified NP · 20+ years · ★★★★★ 5.0 on Google).
 - Primary text opens with the offer, then spells out the exact next step.
 - Katie is never called a doctor. No price (the $3,995 program price stays off). No patient quotes, no before/after or scale imagery.
-- The 4.9 Google rating is as stated by the client (Nov 2026). Keep a screenshot of her Google Business Profile on file; if it drops, change `GOOGLE_RATING` in `build/render.js` and re-render.
+- Google rating: 5.0 from 9 reviews on Google Maps (Nov 2026; screenshot in `photos/google-rating-proof-2026-11.png`). If it changes, update `GOOGLE_RATING` in `build/render.js` and re-render.
 
 ## Ad 1A / 1B · Weight Loss Stalled? (A/B photo test)
 Same copy, same layout; only the photo changes, so the test isolates the photo.
@@ -27,7 +27,7 @@ Run both in one ad set with the same budget, and judge on cost per lead after ~5
 
   ✔️ Root-cause care for women 35-55
   ✔️ Virtual visits from home, anywhere in Michigan or Wisconsin
-  ⭐ 4.9 on Google
+  ⭐ 5.0 on Google
 
   How to book: Tap "Book Now" → fill out the quick form → you'll be prompted to pick a time for your free assessment call.
 
@@ -43,7 +43,7 @@ Photo: blue shirt (`katie-blue-shirt`), her warmest smile.
 
   ✔️ Root-cause care, not another diet
   ✔️ Virtual visits from home, anywhere in Michigan & Wisconsin
-  ⭐ 4.9 on Google
+  ⭐ 5.0 on Google
 
   How to book: Tap "Book Now" → fill out the quick form → you'll be prompted to pick a time for your free assessment call.
 
@@ -62,7 +62,7 @@ Photo: couch (`katie-couch`), cropped below her hands.
   ✔️ Nutrition & supplement guidance
   ✔️ Provider visits with Katie, from home
 
-  Katie works with only 4 clients at a time, so every plan gets her full attention. Telehealth across all of Michigan & Wisconsin. ⭐ 4.9 on Google.
+  Katie works with only 4 clients at a time, so every plan gets her full attention. Telehealth across all of Michigan & Wisconsin. ⭐ 5.0 on Google.
 
   How to book: Tap "Book Now" → fill out the quick form → you'll be prompted to pick a time for your free assessment call.
 
