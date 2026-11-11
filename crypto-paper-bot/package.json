@@ -1,0 +1,13 @@
+{
+  "name": "crypto-paper-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SMA crossover paper-trading bot for BTC with a live dashboard (CoinGecko prices)",
+  "scripts": {
+    "start": "node src/server.js",
+    "sim": "node src/server.js --sim",
+    "backtest": "node src/backtest.js",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=18" }
+}
