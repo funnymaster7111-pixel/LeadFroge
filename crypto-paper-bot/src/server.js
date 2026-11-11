@@ -50,11 +50,19 @@ function scheduleSave() {
   }, 500);
 }
 
+// The crossover runs on short candles; RSI dip-buying was tested on hourly ones.
+const CANDLE_MINUTES = num(process.env.CANDLE_MINUTES, 5);
+const candleMinutesFor = (strategy) => (strategy === 'rsi' ? 60 : CANDLE_MINUTES);
+
 const bot = new Bot(
   {
+    strategy: 'rsi',
     fastPeriod: 9,
     slowPeriod: 21,
-    candleMinutes: num(process.env.CANDLE_MINUTES, 5),
+    rsiPeriod: 14,
+    rsiBuyBelow: 25,
+    rsiSellAbove: 70,
+    candleMinutes: CANDLE_MINUTES,
     startingCash: 10000,
     feePct: 0.1,
     slippagePct: 0.05,
@@ -70,7 +78,16 @@ if (!SIM) {
   }
 }
 
+bot.settings.candleMinutes = candleMinutesFor(bot.settings.strategy);
+
 const feed = { status: 'starting', error: null, nextCheckAt: null };
+
+// Enough history to fill the indicators: one day for short candles, a week for hourly.
+function loadHistory(candleMinutes) {
+  const days = candleMinutes >= 60 ? 7 : 1;
+  if (SIM) return Promise.resolve(sim.recent(days * 24 * 60));
+  return coingecko.fetchHistory(COIN, days, API_KEY);
+}
 // In sim mode one real second is one simulated minute.
 const SIM_TICK_MS = 1000;
 let sim = null;
@@ -82,9 +99,9 @@ async function startLive() {
   const loop = async () => {
     try {
       if (!seeded) {
-        bot.seed(await coingecko.fetchHistory(COIN, 1, API_KEY));
+        bot.seed(await loadHistory(bot.settings.candleMinutes));
         seeded = true;
-        bot.log(Date.now(), 'INFO', `Loaded the last day of prices (${bot.candles.length} candles)`);
+        bot.log(Date.now(), 'INFO', `Loaded recent prices (${bot.candles.length} candles)`);
       }
       bot.onTick(Date.now(), await coingecko.fetchPrice(COIN, API_KEY));
       feed.status = 'ok';
@@ -104,7 +121,8 @@ async function startLive() {
 
 function startSim() {
   sim = new SimFeed();
-  bot.seed(sim.history(24 * 60 - 30));
+  sim.history(7 * 24 * 60 - 30);
+  loadHistory(bot.settings.candleMinutes).then((points) => bot.seed(points));
   bot.log(sim.t, 'INFO', 'Offline demo started with simulated prices');
   feed.status = 'ok';
   setInterval(() => {
@@ -179,17 +197,35 @@ async function handlePost(req, res, route) {
     }
     bot.reset(cash, now());
   } else if (route === '/api/settings') {
-    const fastPeriod = Number(body.fastPeriod);
-    const slowPeriod = Number(body.slowPeriod);
-    const feePct = Number(body.feePct);
-    const slippagePct = Number(body.slippagePct);
+    const strategy = body.strategy === undefined ? bot.settings.strategy : body.strategy;
+    const pick = (k) => (body[k] === undefined ? bot.settings[k] : Number(body[k]));
+    const [fastPeriod, slowPeriod, feePct, slippagePct] = ['fastPeriod', 'slowPeriod', 'feePct', 'slippagePct'].map(pick);
+    const [rsiPeriod, rsiBuyBelow, rsiSellAbove] = ['rsiPeriod', 'rsiBuyBelow', 'rsiSellAbove'].map(pick);
+    if (!['sma', 'rsi'].includes(strategy)) return sendJson(res, 400, { error: 'Strategy must be "sma" or "rsi"' });
+    if (!Number.isInteger(rsiPeriod) || rsiPeriod < 2 || rsiPeriod > 100) {
+      return sendJson(res, 400, { error: 'RSI length must be a whole number from 2 to 100' });
+    }
+    if (![rsiBuyBelow, rsiSellAbove].every(Number.isFinite) || rsiBuyBelow < 1 || rsiSellAbove > 99 || rsiBuyBelow >= rsiSellAbove) {
+      return sendJson(res, 400, { error: 'RSI levels must be between 1 and 99, with the buy level below the sell level' });
+    }
     if (!Number.isInteger(fastPeriod) || !Number.isInteger(slowPeriod) || fastPeriod < 1 || slowPeriod > 200 || fastPeriod >= slowPeriod) {
       return sendJson(res, 400, { error: 'Averages must be whole numbers with fast smaller than slow (slow at most 200)' });
     }
     if (![feePct, slippagePct].every((n) => Number.isFinite(n) && n >= 0 && n <= 5)) {
       return sendJson(res, 400, { error: 'Fee and slippage must be between 0% and 5%' });
     }
-    bot.updateSettings({ fastPeriod, slowPeriod, feePct, slippagePct }, now());
+    const patch = { fastPeriod, slowPeriod, feePct, slippagePct, rsiPeriod, rsiBuyBelow, rsiSellAbove };
+    if (strategy !== bot.settings.strategy) {
+      const candleMinutes = candleMinutesFor(strategy);
+      let points;
+      try {
+        points = await loadHistory(candleMinutes);
+      } catch (err) {
+        return sendJson(res, 502, { error: `Could not load price history for the new strategy: ${err.message}` });
+      }
+      bot.switchStrategy({ strategy, candleMinutes }, points, now());
+    }
+    bot.updateSettings(patch, now());
   } else return sendJson(res, 404, { error: 'Not found' });
   sendJson(res, 200, state());
 }
@@ -216,7 +252,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, '127.0.0.1', () => {
-  console.log(`SMA Crossover Bot running at http://localhost:${PORT}` + (SIM ? ' (offline demo, simulated prices)' : ''));
+  console.log(`Trading bot running at http://localhost:${PORT}` + (SIM ? ' (offline demo, simulated prices)' : ''));
   if (!SIM && !API_KEY) console.log('No COINGECKO_API_KEY in .env: using the keyless API, which has stricter limits.');
   if (SIM) startSim();
   else startLive();

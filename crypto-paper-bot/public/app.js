@@ -5,6 +5,7 @@ const usd = (n) => '$' + Number(n).toLocaleString('en-US', { minimumFractionDigi
 const signed = (n) => (n >= 0 ? '+' : '-') + usd(Math.abs(n));
 const clock = (t) => new Date(t).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 const stamp = (t) => new Date(t).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+const FIELDS = ['fastPeriod', 'slowPeriod', 'feePct', 'slippagePct', 'rsiPeriod', 'rsiBuyBelow', 'rsiSellAbove'];
 const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 // The chart library shows UTC, so shift times to show local time on the axis.
 const chartTime = (t) => Math.floor(t / 1000) - new Date(t).getTimezoneOffset() * 60;
@@ -56,6 +57,11 @@ function line(points, key) {
 
 function render(s) {
   const st = s.settings;
+  const useRsi = st.strategy === 'rsi';
+  const title = useRsi ? 'RSI Dip-Buying Bot' : 'SMA Crossover Bot';
+  $('title').textContent = title;
+  document.title = title;
+  $('chartTitle').textContent = useRsi ? 'Price' : 'Price & moving averages';
   const feedName = s.sim ? 'Simulated prices (offline demo)' : 'Live CoinGecko prices';
   $('subtitle').textContent = 'BTC/USD · ' + feedName;
   $('simBadge').hidden = !s.sim;
@@ -78,17 +84,42 @@ function render(s) {
   setText('fees', 'Fees paid ' + usd(s.feesPaid));
 
   $('chartSub').textContent = `${st.candleMinutes}-minute candles · ${feedName}`;
-  for (const id of ['lgFastN', 'rwFastN']) $(id).textContent = st.fastPeriod;
-  for (const id of ['lgSlowN', 'rwSlowN']) $(id).textContent = st.slowPeriod;
-  const { fast, slow, ready } = s.signal;
+  $('lgFastN').textContent = st.fastPeriod;
+  $('lgSlowN').textContent = st.slowPeriod;
+  $('lgRsiN').textContent = st.rsiPeriod;
+  $('lgFastWrap').hidden = $('lgSlowWrap').hidden = useRsi;
+  $('lgRsiWrap').hidden = !useRsi;
+  const { fast = null, slow = null, rsi = null, ready } = s.signal;
+  const money = (v) => (v === null ? '–' : usd(v));
+  setText('lgFast', money(fast));
+  setText('lgSlow', money(slow));
+  setText('lgRsi', rsi === null ? '–' : rsi.toFixed(1));
+  if (useRsi) {
+    setText('rwL1', `RSI (${st.rsiPeriod})`);
+    setText('rwV1', rsi === null ? '–' : rsi.toFixed(1));
+    setText('rwL2', 'Buys below');
+    setText('rwV2', String(st.rsiBuyBelow));
+    setText('rwL3', 'Sells above');
+    setText('rwV3', String(st.rsiSellAbove));
+    $('rule1').innerHTML = `<b>Buy</b> when RSI closes <i>below</i> ${st.rsiBuyBelow} (a sharp dip).`;
+    $('rule2').innerHTML = `<b>Sell</b> everything when RSI closes <i>above</i> ${st.rsiSellAbove} (the rebound).`;
+  } else {
+    setText('rwL1', `Fast SMA (${st.fastPeriod})`);
+    setText('rwV1', money(fast));
+    setText('rwL2', `Slow SMA (${st.slowPeriod})`);
+    setText('rwV2', money(slow));
+    setText('rwL3', 'Gap between them');
+    setText('rwV3', ready ? `${fast >= slow ? '+' : ''}${(((fast - slow) / slow) * 100).toFixed(3)}%` : '–');
+    $('rule1').innerHTML = '<b>Buy</b> when the fast SMA crosses <i>above</i> the slow SMA.';
+    $('rule2').innerHTML = '<b>Sell</b> everything when it crosses back <i>below</i>.';
+  }
+  setText('rwCrossLabel', useRsi ? 'Last signal' : 'Last crossover');
   const lastClose = s.chart.length ? s.chart[s.chart.length - 1].close : null;
   setText('lgClose', lastClose === null ? '–' : usd(lastClose));
-  for (const id of ['lgFast', 'rwFast']) setText(id, fast === null ? '–' : usd(fast));
-  for (const id of ['lgSlow', 'rwSlow']) setText(id, slow === null ? '–' : usd(slow));
-  setText('rwGap', ready ? `${fast >= slow ? '+' : ''}${(((fast - slow) / slow) * 100).toFixed(3)}%` : '–');
   setText('rwCandle', s.candleClosesIn === null ? '–' : s.candleClosesIn + 's');
   setText('rwNext', s.nextCheckIn === null ? '–' : s.nextCheckIn + 's');
-  setText('rwCross', s.lastCross ? `${s.lastCross.kind === 'golden' ? 'Golden cross ▲' : 'Death cross ▼'} · ${stamp(s.lastCross.t)} · ${s.lastCross.note}` : 'None yet');
+  const KIND = { golden: 'Golden cross ▲', death: 'Death cross ▼', dip: 'Dip ▲', rebound: 'Rebound ▼' };
+  setText('rwCross', s.lastCross ? `${KIND[s.lastCross.kind] || 'Signal'} · ${stamp(s.lastCross.t)} · ${s.lastCross.note}` : 'None yet');
   $('rule3').textContent = `Checked once per closed ${st.candleMinutes}-minute candle. Each fill pays ${st.feePct}% fee + ${st.slippagePct}% slippage.`;
 
   const box = $('signalBox');
@@ -96,7 +127,12 @@ function render(s) {
     box.className = 'signal';
     setText('signalArrow', '•');
     setText('signalTitle', 'Warming up');
-    setText('signalText', `Needs ${st.slowPeriod} closed candles before it can compare the averages.`);
+    setText('signalText', useRsi ? `Needs ${st.rsiPeriod + 1} closed candles before it can compute RSI.` : `Needs ${st.slowPeriod} closed candles before it can compare the averages.`);
+  } else if (useRsi) {
+    box.className = holding ? 'signal up' : rsi < st.rsiBuyBelow ? 'signal down' : 'signal';
+    setText('signalArrow', holding ? '▲' : rsi < st.rsiBuyBelow ? '▼' : '•');
+    setText('signalTitle', holding ? 'Holding BTC after a dip' : rsi < st.rsiBuyBelow ? `RSI is below ${st.rsiBuyBelow} (dip)` : 'Waiting for a dip');
+    setText('signalText', holding ? `Sells when RSI closes above ${st.rsiSellAbove}.` : rsi < st.rsiBuyBelow ? 'Buys if RSI is still below the level when this candle closes.' : `In cash. Buys when RSI closes below ${st.rsiBuyBelow}.`);
   } else if (fast > slow) {
     box.className = 'signal up';
     setText('signalArrow', '▲');
@@ -128,11 +164,13 @@ function render(s) {
   setText('lgBot', usd(s.equity));
   setText('lgHold', usd(s.hold));
 
+  $('candleHead').replaceChildren(...(useRsi ? ['Candle', 'Close', 'RSI'] : ['Candle', 'Close', 'Fast SMA', 'Slow SMA']).map((h) => Object.assign(document.createElement('th'), { textContent: h })));
   const rows = $('candleRows');
   rows.replaceChildren(
     ...s.chart.slice(-30).reverse().map((c) => {
       const tr = document.createElement('tr');
-      for (const text of [stamp(c.t), usd(c.close), c.fast === null ? '–' : usd(c.fast), c.slow === null ? '–' : usd(c.slow)]) {
+      const cells = useRsi ? [stamp(c.t), usd(c.close), c.rsi === null ? '–' : c.rsi.toFixed(1)] : [stamp(c.t), usd(c.close), money(c.fast), money(c.slow)];
+      for (const text of cells) {
         tr.appendChild(document.createElement('td')).textContent = text;
       }
       return tr;
@@ -189,11 +227,19 @@ const dlg = $('settingsDlg');
 const form = $('settingsForm');
 $('settingsBtn').onclick = () => {
   if (!state) return;
-  for (const k of ['fastPeriod', 'slowPeriod', 'feePct', 'slippagePct']) form.elements[k].value = state.settings[k];
+  for (const k of FIELDS) form.elements[k].value = state.settings[k];
+  form.elements.strategy.value = state.settings.strategy;
+  showStrategyFields();
   $('resetCash').value = state.settings.startingCash;
   $('settingsErr').hidden = true;
   dlg.showModal();
 };
+function showStrategyFields() {
+  const rsi = form.elements.strategy.value === 'rsi';
+  $('smaFields').hidden = rsi;
+  $('rsiFields').hidden = !rsi;
+}
+form.elements.strategy.onchange = showStrategyFields;
 $('settingsCancel').onclick = () => dlg.close();
 const showErr = (err) => {
   $('settingsErr').textContent = err.message;
@@ -201,8 +247,8 @@ const showErr = (err) => {
 };
 form.onsubmit = (e) => {
   e.preventDefault();
-  const body = {};
-  for (const k of ['fastPeriod', 'slowPeriod', 'feePct', 'slippagePct']) body[k] = Number(form.elements[k].value);
+  const body = { strategy: form.elements.strategy.value };
+  for (const k of FIELDS) body[k] = Number(form.elements[k].value);
   post('/api/settings', body).then(() => dlg.close(), showErr);
 };
 $('resetBtn').onclick = () => {
